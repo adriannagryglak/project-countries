@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.home {
+  min-height: 40vh;
+  padding: 150px 50px 50px 50px;
+  background-color: ivory;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+
+.home h1 {
+  font-size: 50px;
+  margin-bottom: 50px;
+  font-family: 'Zen Kurenaido', sans-serif;
+}
+
+.search-bar {
+  border-radius: 50px;
+  border: 1px solid black;
+  background-color: white;
+  padding: 15px 15px 15px 30px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  transition: all 1s ease;
+}
+
+.search-bar input {
+  height: 100%;
+  border: none;
+  font-size: 28px;
+  background-color: inherit;
+  text-transform: uppercase;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+.search-bar button {
+  margin: 10px;
+  border: none;
+  background-color: inherit;
+  font-size: 24px;
+}
+
+.search-bar button:hover {
+  cursor: pointer;
+}
+
+.search-bar:focus-within {
+  background-color: #e9c8b7;
+}
+/*# sourceMappingURL=style.css.map */

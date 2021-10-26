@@ -1,9 +1,1 @@
-{
-	"version": 3,
-	"file": "style.css",
-	"sources": [
-		"../sass/style.scss"
-	],
-	"names": [],
-	"mappings": ""
-}
+{"version":3,"sources":["../sass/style.scss"],"names":[],"mappings":"AAAA;EACI,uBAAsB;EACtB,UAAS;EACT,WAAU;CACb;;AAED;EACI,qBAAa;EAAb,cAAa;CAChB;;AAED;EACI,iBAAgB;EAChB,8BAA6B;EAC7B,wBAAuB;EACvB,2BAAsB;MAAtB,uBAAsB;EACtB,uBAAmB;MAAnB,oBAAmB;EACnB,uBAA8B;MAA9B,+BAA8B;CAOjC;;AAbD;EASQ,gBAAe;EACf,oBAAmB;EACnB,yCAAwC;CAC3C;;AAKL;EACI,oBAAmB;EACnB,wBAAuB;EACvB,wBAAuB;EACvB,6BAA4B;EAC5B,qBAAa;EAAb,cAAa;EACb,uBAAmB;MAAnB,oBAAmB;EACnB,wBAAwB;CAwB3B;;AA/BD;EAUQ,aAAY;EACZ,aAAY;EACZ,gBAAe;EACf,0BAAyB;EACzB,0BAAyB;CAC5B;;AAfL;EAkBQ,cAAa;CAChB;;AAnBL;EAsBQ,aAAY;EACZ,aAAY;EACZ,0BAAyB;EACzB,gBAAe;CAClB;;AA1BL;EA6BQ,gBAAe;CAClB;;AAGL;EACG,0BAAoC;CACtC","file":"style.css"}

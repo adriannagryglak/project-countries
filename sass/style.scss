@@ -1,0 +1,64 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+section{
+    display: flex;
+}
+
+.home{
+    min-height: 40vh;
+    padding: 150px 50px 50px 50px;
+    background-color: ivory;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    h1{
+        font-size: 50px;
+        margin-bottom: 50px;
+        font-family: 'Zen Kurenaido', sans-serif;
+    }
+}
+
+
+
+.search-bar {
+    border-radius: 50px;
+    border: 1px solid black;
+    background-color: white;
+    padding: 15px 15px 15px 30px;
+    display: flex;
+    align-items: center;
+    transition: all 1s ease ;
+
+    input{
+        height: 100%;
+        border: none;
+        font-size: 28px;
+        background-color: inherit;
+        text-transform: uppercase;
+    }
+
+    input:focus{
+        outline: none;
+    }
+
+    button{
+        margin: 10px;
+        border: none;
+        background-color: inherit;
+        font-size: 24px;
+    }
+
+    button:hover{
+        cursor: pointer;
+    }
+}
+
+.search-bar:focus-within {
+   background-color: rgb(233, 200, 183);
+}
+
