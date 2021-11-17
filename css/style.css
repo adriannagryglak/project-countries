@@ -7,12 +7,12 @@
 section {
   display: -ms-flexbox;
   display: flex;
+  transition: all 0.7s ease;
 }
 
 .home {
   min-height: 40vh;
   padding: 150px 50px 50px 50px;
-  background-color: ivory;
   -ms-flex-direction: column;
       flex-direction: column;
   -ms-flex-align: center;
@@ -21,13 +21,46 @@ section {
       justify-content: space-between;
 }
 
+.home.dark {
+  background-color: black;
+}
+
+.home .mode-changer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 50px 100px;
+  padding: 10px 20px;
+  font-size: 30px;
+  border: solid 1px black;
+  border-radius: 50px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+
+.home .mode-changer.dark {
+  border: 1px solid white;
+  color: white;
+}
+
 .home h1 {
   font-size: 50px;
   margin-bottom: 50px;
   font-family: 'Zen Kurenaido', sans-serif;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
-.search-bar {
+.home h1.dark {
+  color: white;
+}
+
+.home .search-bar {
   border-radius: 50px;
   border: 1px solid black;
   background-color: white;
@@ -36,33 +69,66 @@ section {
   display: flex;
   -ms-flex-align: center;
       align-items: center;
-  transition: all 1s ease;
+  transition: all 0.7s ease;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
-.search-bar input {
+.home .search-bar.dark {
+  background-color: black;
+  border: 1px solid white;
+}
+
+.home .search-bar input {
   height: 100%;
+  width: 30vw;
   border: none;
   font-size: 28px;
   background-color: inherit;
   text-transform: uppercase;
 }
 
-.search-bar input:focus {
+.home .search-bar input.dark {
+  color: white;
+}
+
+.home .search-bar input:focus {
   outline: none;
 }
 
-.search-bar button {
+.home .search-bar button {
   margin: 10px;
   border: none;
   background-color: inherit;
   font-size: 24px;
-}
-
-.search-bar button:hover {
   cursor: pointer;
 }
 
-.search-bar:focus-within {
+.home .search-bar button.dark {
+  color: white;
+}
+
+.home .search-bar:focus-within {
   background-color: #e9c8b7;
+}
+
+.countries {
+  padding: 50px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  min-height: 60vh;
+}
+
+.countries.dark {
+  background-color: black;
+}
+
+.countries img {
+  width: 15vw;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 20px;
 }
 /*# sourceMappingURL=style.css.map */

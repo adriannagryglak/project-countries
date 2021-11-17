@@ -1,64 +1,116 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-section{
-    display: flex;
+section {
+  display: flex;
+  transition: all 0.7s ease;
 }
 
-.home{
-    min-height: 40vh;
-    padding: 150px 50px 50px 50px;
-    background-color: ivory;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+.home {
+  min-height: 40vh;
+  padding: 150px 50px 50px 50px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 
-    h1{
-        font-size: 50px;
-        margin-bottom: 50px;
-        font-family: 'Zen Kurenaido', sans-serif;
+  &.dark {
+    background-color: black;
+  }
+
+  .mode-changer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 50px 100px;
+    padding: 10px 20px;
+    font-size: 30px;
+    border: solid 1px black;
+    border-radius: 50px;
+    user-select: none;
+    cursor: pointer;
+
+    &.dark {
+      border: 1px solid white;
+      color: white;
     }
-}
+  }
 
+  h1 {
+    font-size: 50px;
+    margin-bottom: 50px;
+    font-family: 'Zen Kurenaido', sans-serif;
+    user-select: none;
 
+    &.dark {
+      color: white;
+    }
+  }
 
-.search-bar {
+  .search-bar {
     border-radius: 50px;
     border: 1px solid black;
     background-color: white;
     padding: 15px 15px 15px 30px;
     display: flex;
     align-items: center;
-    transition: all 1s ease ;
+    transition: all 0.7s ease;
+    user-select: none;
 
-    input{
-        height: 100%;
-        border: none;
-        font-size: 28px;
-        background-color: inherit;
-        text-transform: uppercase;
+    &.dark {
+      background-color: black;
+      border: 1px solid white;
     }
 
-    input:focus{
-        outline: none;
+    input {
+      height: 100%;
+      width: 30vw;
+      border: none;
+      font-size: 28px;
+      background-color: inherit;
+      text-transform: uppercase;
+
+      &.dark {
+        color: white;
+      }
     }
 
-    button{
-        margin: 10px;
-        border: none;
-        background-color: inherit;
-        font-size: 24px;
+    input:focus {
+      outline: none;
     }
 
-    button:hover{
-        cursor: pointer;
+    button {
+      margin: 10px;
+      border: none;
+      background-color: inherit;
+      font-size: 24px;
+      cursor: pointer;
+
+      &.dark {
+        color: white;
+      }
     }
+  }
+
+  .search-bar:focus-within {
+    background-color: rgb(233, 200, 183);
+  }
 }
 
-.search-bar:focus-within {
-   background-color: rgb(233, 200, 183);
-}
+.countries {
+  padding: 50px;
+  flex-wrap: wrap;
+  min-height: 60vh;
 
+  &.dark {
+    background-color: black;
+  }
+
+  img {
+    width: 15vw;
+    height: fit-content;
+    margin: 20px;
+  }
+}
