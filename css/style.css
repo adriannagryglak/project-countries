@@ -8,7 +8,7 @@ section {
   display: -ms-flexbox;
   display: flex;
   transition: all 0.7s ease;
-  background-color: #d5ecee;
+  background-color: #e4ebe2;
 }
 
 .home {
@@ -23,7 +23,7 @@ section {
 }
 
 .home.dark {
-  background-color: black;
+  background-color: #1c1c1c;
 }
 
 .home .mode-changer {
@@ -40,11 +40,20 @@ section {
       -ms-user-select: none;
           user-select: none;
   cursor: pointer;
+  background-color: #f4fdf0;
 }
 
 .home .mode-changer.dark {
   border: 1px solid white;
   color: white;
+  background-color: #1c1c1c;
+}
+
+@media (max-width: 800px) {
+  .home .mode-changer {
+    margin: 30px;
+    font-size: 25px;
+  }
 }
 
 .home h1 {
@@ -62,10 +71,16 @@ section {
   color: white;
 }
 
+@media (max-width: 500px) {
+  .home h1 {
+    font-size: 36px;
+  }
+}
+
 .home .search-bar {
   border-radius: 50px;
   border: 1px solid black;
-  background-color: #e7f4f5;
+  background-color: #f4fdf0;
   padding: 15px 15px 15px 30px;
   display: -ms-flexbox;
   display: flex;
@@ -79,13 +94,13 @@ section {
 }
 
 .home .search-bar.dark {
-  background-color: black;
+  background-color: #1c1c1c;
   border: 1px solid white;
 }
 
 .home .search-bar input {
   height: 100%;
-  width: 30vw;
+  min-width: 30vw;
   border: none;
   font-size: 28px;
   font-family: 'Zen Maru Gothic', sans-serif;
@@ -95,6 +110,12 @@ section {
 
 .home .search-bar input.dark {
   color: white;
+}
+
+@media (max-width: 500px) {
+  .home .search-bar input {
+    width: 50vw;
+  }
 }
 
 .home .search-bar input:focus {
@@ -127,14 +148,32 @@ section {
 }
 
 .countries.dark {
-  background-color: black;
+  background-color: #1c1c1c;
+}
+
+@media (max-width: 1200px) {
+  .countries {
+    padding: 20px;
+  }
 }
 
 .countries div {
   width: 15vw;
-  max-height: 250px;
   margin: 20px;
   position: relative;
+  max-height: 250px;
+}
+
+@media (max-width: 1300px) {
+  .countries div {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 800px) {
+  .countries div {
+    width: 50vw;
+  }
 }
 
 .countries div img {
@@ -158,6 +197,36 @@ section {
   color: white;
 }
 
+.countries div .details {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-weight: bolder;
+}
+
+.countries div .details.dark {
+  color: white;
+}
+
+.countries div:hover {
+  cursor: pointer;
+}
+
+.countries div:hover .title,
+.countries div:hover img {
+  opacity: 0.2;
+}
+
+.countries div:hover .details {
+  opacity: 1;
+  text-shadow: 0px 2px 2px rgba(255, 255, 255, 0.4);
+}
+
 .modal {
   position: fixed;
   width: 70vw;
@@ -167,6 +236,18 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.modal.dark {
+  color: black;
+  background-color: #e4ebe2;
+}
+
+@media (max-width: 800px) {
+  .modal {
+    width: 80vw;
+    height: unset;
+  }
 }
 
 .modal img {
@@ -180,6 +261,16 @@ section {
      object-fit: contain;
 }
 
+@media (max-width: 800px) {
+  .modal img {
+    position: initial;
+    transform: unset;
+    margin: 100px auto 50px auto;
+    max-width: 60%;
+    display: block;
+  }
+}
+
 .modal ul {
   position: absolute;
   left: 0;
@@ -189,6 +280,27 @@ section {
   margin: auto 0 auto 53%;
   font-family: 'Zen Kurenaido', sans-serif;
   font-size: 24px;
+}
+
+@media (max-width: 800px) {
+  .modal ul {
+    display: block;
+    position: initial;
+    transform: unset;
+    margin: 50px auto 100px auto;
+    max-width: 60%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .modal ul {
+    font-size: 20px;
+  }
+}
+
+.modal ul li:first-child {
+  font-weight: bold;
 }
 
 .modal i {

@@ -1,40 +1,26 @@
 let lightModeOn = true;
-function lightDarkMode() {
-    const modeChanger = document.querySelector('.mode-changer');
-    const modeChangerIcon = document.querySelector('.mode-changer icon');
-    
+const input = document.querySelector('input');
+const countriesSection = document.querySelector('.countries');
+const home = document.querySelector('.home');
 
-    modeChanger.addEventListener('click', function () {
-        const changingElements = document.querySelectorAll('.light');
-        modeChangerIcon.classList.toggle('fa-moon');
-        modeChangerIcon.classList.toggle('fa-sun');
-        lightModeOn = !lightModeOn;
-        for (let element of changingElements) {
-            element.classList.toggle('dark');
+lightDarkMode();
+dataFetching();
+
+function dataFetching(){
+    const btn = document.querySelector('button');
+    btn.addEventListener('click', () => {
+        while (countriesSection.firstChild) {
+            countriesSection.removeChild(countriesSection.lastChild);
+        }
+        getData();
+    });
+    
+    input.addEventListener("keyup", (e) => {
+        if (e.code === 'Enter') {
+            btn.click();
         }
     });
 }
-lightDarkMode();
-
-//fetching countrie data
-const btn = document.querySelector('button');
-const input = document.querySelector('input');
-const countries = document.querySelector('.countries');
-const section = document.querySelector('.countries');
-const body = document.querySelector('body');
-
-btn.addEventListener('click', () => {
-    while (countries.firstChild) {
-        countries.removeChild(countries.lastChild);
-    }
-    getData();
-});
-
-input.addEventListener("keyup", (e)=>{
-  if (e.code === 'Enter') {
-   btn.click();
-  }
-});
 
 async function getData() {
     try {
@@ -58,54 +44,85 @@ class Countrie {
         const img = document.createElement('img');
         img.src = this.data.flags.png;
         const title = document.createElement('p');
-
-        if(lightModeOn){
-            title.classList.add('title', 'light');
-        }else{
-            title.classList.add('title', 'light', 'dark');
-        }
-
         title.innerText = this.data.name.common;
-        div.append(img, title);
+        adjusToMode(title, 'title');
+        const details = document.createElement('p');
+        details.innerText = 'click for details'
+        adjusToMode(details, 'details');
+        div.append(img, title, details);
+
         div.addEventListener('click', () => {
             const imgCopy = img.cloneNode();
             this.showModal(imgCopy);
-            countries.style.pointerEvents = "none";
+            countriesSection.style.pointerEvents = "none";
         });
-        section.append(div);
+        countriesSection.append(div);
     }
     showModal(flag) {
         const modal = document.createElement('div');
-        modal.classList.add('modal');
-        body.append(modal);
+        adjusToMode(modal, 'modal');
+        document.querySelector('body').append(modal);
         const details = document.createElement('ul');
         const icon = document.createElement('i');
-        icon.classList.add('fas','fa-times');
-        modal.append(details, flag, icon);
+        icon.classList.add('fas', 'fa-times');
+        modal.append(flag, details, icon);
         const arr = ['currencies', 'prefix', 'region', 'subregion', 'language', 'borders', 'population'];
+
         for (let info of arr) {
             const li = document.createElement('li');
             if (info in this.data && typeof this.data[info] === 'object') {
-                for (let currencie in this.data[info]){
+                for (let currencie in this.data[info]) {
                     li.innerText = `currency : ${this.data[info][currencie].name}`;
-                }    
+                }
             } else if (info in this.data) {
                 li.innerText = `${info} : ${(this.data[info])}`;
             }
             details.append(li);
         }
-        modal.addEventListener('mousemove', ()=>{
-            icon.style.opacity = "1";
-        });
-        modal.addEventListener('mouseleave', ()=>{
-            icon.style.opacity = "0";
+
+        const title = document.createElement('li');
+        title.innerText = `${this.data.name.common}`;
+        details.insertAdjacentElement('afterbegin', title)
+
+        //media-query for modal removing
+        const mediaQuery = window.matchMedia('(min-width: 768px)');
+        if (mediaQuery.matches) {
+            modal.addEventListener('mousemove', () => {
+                icon.style.opacity = "1";
+            });
+            modal.addEventListener('mouseleave', () => {
+                icon.style.opacity = "0";
+            });
+        }else{icon.style.opacity= "1"};
+
+    
+        icon.addEventListener('click', () => {
+            modal.remove();
+            countriesSection.style.pointerEvents = "all";
         });
 
-        icon.addEventListener('click',()=>{
-            modal.remove();
-            countries.style.pointerEvents = "all";
-        });
     }
 }
 
+function adjusToMode(el, className){
+    if (lightModeOn) {
+        el.classList.add(className, 'light');
+    } else {
+        el.classList.add(className, 'light', 'dark');
+    }
+}
 
+function lightDarkMode() {
+    const modeChanger = document.querySelector('.mode-changer');
+    const modeChangerIcon = document.querySelector('.mode-changer icon');
+
+    modeChanger.addEventListener('click', function () {
+        const changingElements = document.querySelectorAll('.light');
+        modeChangerIcon.classList.toggle('fa-moon');
+        modeChangerIcon.classList.toggle('fa-sun');
+        lightModeOn = !lightModeOn;
+        for (let element of changingElements) {
+            element.classList.toggle('dark');
+        }
+    });
+}
